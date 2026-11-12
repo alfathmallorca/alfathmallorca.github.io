@@ -4,140 +4,316 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Tag verifikasi Google Search Console akan ditempel di bawah ini -->
-
-    <title>Muhammad Nur Alfath Mallorca - Portofolio</title>
+    
+    <title>Muhammad Nur Alfath Mallorca - JR. Network Engineer Portfolio</title>
     <meta name="description" content="Portofolio IT Infrastructure, Linux, dan Network Automation oleh Muhammad Nur Alfath Mallorca.">
     
-    <!-- CSS Sederhana untuk mempercantik tampilan CV -->
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+        /* CSS Variables untuk Tema Warna */
+        :root {
+            --primary-bg: #0f172a; /* Biru Dongker Gelap (Navy) */
+            --secondary-bg: #f8fafc;
+            --accent-color: #3b82f6; /* Biru Terang */
+            --text-dark: #1e293b;
+            --text-light: #94a3b8;
+            --white: #ffffff;
+        }
+
+        /* Reset & Base Styles */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f3f4f6;
-            color: #333;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            background: #ffffff;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        body {
+            background-color: var(--secondary-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
         }
-        header {
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigasi */
+        nav {
+            background-color: var(--primary-bg);
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            color: var(--white);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        .logo span {
+            color: var(--accent-color);
+        }
+        .social-nav a {
+            color: var(--white);
+            margin-left: 20px;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+        .social-nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--primary-bg);
+            color: var(--white);
+            padding: 100px 50px;
             text-align: center;
-            border-bottom: 2px solid #2563eb;
-            padding-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        .hero h2 {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            font-weight: 300;
             margin-bottom: 30px;
         }
-        h1 {
-            color: #1e3a8a;
+        .hero .cta-btn {
+            background-color: var(--accent-color);
+            color: var(--white);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+        }
+        .hero .cta-btn:hover {
+            background-color: #2563eb;
+        }
+
+        /* Section Global Styles */
+        section {
+            padding: 80px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-bg);
+            margin-bottom: 40px;
+            text-align: center;
+            font-weight: 700;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Grid Layout (Untuk Kartu Pengalaman & Proyek) */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid var(--accent-color);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .card h3 {
+            font-size: 1.2rem;
+            color: var(--primary-bg);
             margin-bottom: 5px;
         }
-        h2 {
-            color: #2563eb;
-            font-size: 1.2rem;
-            margin-top: 0;
-        }
-        h3 {
-            color: #1e40af;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 5px;
-            margin-top: 30px;
-        }
-        p, li {
+        .card h4 {
             font-size: 1rem;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-weight: 600;
         }
-        .contact-info a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: bold;
+        .card .date {
+            font-size: 0.85rem;
+            color: #64748b;
+            margin-bottom: 15px;
+            display: block;
         }
-        .contact-info a:hover {
-            text-decoration: underline;
+        .card p {
+            font-size: 0.95rem;
+            color: #475569;
         }
-        ul {
-            padding-left: 20px;
+
+        /* Badges (Untuk Skills & Sertifikasi) */
+        .badges-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
         }
-        .job-title {
-            font-weight: bold;
-            color: #111827;
-        }
-        .date-location {
+        .badge {
+            background-color: #e0e7ff;
+            color: #3730a3;
+            padding: 8px 16px;
+            border-radius: 20px;
             font-size: 0.9rem;
-            color: #6b7280;
-            font-style: italic;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-bg);
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            nav, .hero, section {
+                padding: 40px 20px;
+            }
+            .hero h1 { font-size: 2.2rem; }
+            .hero h2 { font-size: 1.2rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- BAGIAN HEADER -->
-        <header>
-            <h1>Muhammad Nur Alfath Mallorca</h1>
-            <h2>Jr. Network Engineer | NOC Technician | IT Support</h2>
-            <div class="contact-info">
-                <p>Tangerang Selatan, Banten | alfathmhmmd18@gmail.com</p>
-                <p>
-                    <a href="https://www.linkedin.com/in/muhammad-alfath-mallorca" target="_blank">LinkedIn</a> | 
-                    <a href="https://github.com/jorn-dot" target="_blank">GitHub</a>
-                </p>
+
+    <!-- NAVIGASI -->
+    <nav>
+        <div class="logo">Alfath<span>.</span></div>
+        <div class="social-nav">
+            <a href="https://www.linkedin.com/in/muhammad-alfath-mallorca" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/jorn-dot" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:alfathmhmmd18@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <h1>Muhammad Nur Alfath Mallorca</h1>
+        <h2>Jr. Network Engineer | IT Infrastructure & System Admin</h2>
+        <a href="https://www.linkedin.com/in/muhammad-alfath-mallorca" target="_blank" class="cta-btn">Mari Terhubung <i class="fa-solid fa-arrow-right"></i></a>
+    </header>
+
+    <!-- ABOUT SECTION -->
+    <section id="about">
+        <h2 class="section-title">Tentang Saya</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: #475569;">
+            Lulusan S1 Sistem Informasi dari Universitas Pamulang dengan komitmen tinggi di bidang infrastruktur jaringan, IT Support, dan administrasi sistem. Memiliki keahlian praktis dalam konfigurasi jaringan (VLAN, DHCP, Routing, MikroTik, Cisco) dan pemeliharaan server Linux. Tersertifikasi resmi oleh BNSP sebagai Network Administrator dan terbiasa menggunakan alat pemantauan seperti Zabbix untuk menjaga stabilitas operasional IT.
+        </p>
+    </section>
+
+    <!-- PENGALAMAN KERJA -->
+    <section id="experience">
+        <h2 class="section-title">Pengalaman Profesional</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>NOC Technician & Field Engineer</h3>
+                <h4>PT Intranusa Core Teknologi</h4>
+                <span class="date"><i class="fa-regular fa-calendar"></i> Okt 2026 – Sekarang | Serpong, Tangerang Selatan</span>
+                <p>Melakukan pemantauan infrastruktur jaringan secara real-time menggunakan The Dude. Mengonfigurasi dan mengelola perangkat routing & switching (MikroTik dan Cisco) via WinBox dan PuTTY, serta menangani eskalasi insiden jaringan.</p>
             </div>
-        </header>
+            <div class="card">
+                <h3>Desktop & Network Support Intern</h3>
+                <h4>PT. Pertamina Patra Niaga</h4>
+                <span class="date"><i class="fa-regular fa-calendar"></i> Mei 2026 – Jun 2026 | Jakarta Pusat</span>
+                <p>Melakukan instalasi, imaging, dan konfigurasi perangkat komputer/laptop pengguna. Memberikan dukungan teknis helpdesk harian (end-user support) serta melakukan troubleshooting hardware, software, dan jaringan dasar.</p>
+            </div>
+        </div>
+    </section>
 
-        <!-- TENTANG SAYA -->
-        <section>
-            <h3>Tentang Saya</h3>
-            <p>Lulusan S1 Sistem Informasi dari Universitas Pamulang dengan komitmen tinggi di bidang infrastruktur jaringan, IT Support, dan administrasi sistem. Memiliki keahlian praktis dalam konfigurasi jaringan (VLAN, DHCP, Routing, MikroTik, Cisco) dan pemeliharaan server Linux. Tersertifikasi resmi oleh BNSP sebagai Network Administrator dan terbiasa menggunakan alat pemantauan seperti Zabbix untuk menjaga stabilitas layanan.</p>
-        </section>
+    <!-- PROYEK PORTFOLIO -->
+    <section id="projects">
+        <h2 class="section-title">Proyek & Simulasi Jaringan</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3><i class="fa-solid fa-network-wired" style="color: var(--accent-color);"></i> Network Engineering & Labs</h3>
+                <p>Merancang topologi jaringan kompleks yang mencakup implementasi VLAN, Inter-VLAN routing, NAT, ACLs, OSPF, RIPv2, dan L2TP VPNs.</p>
+                <div class="badges-container">
+                    <span class="badge">Cisco Packet Tracer</span>
+                    <span class="badge">GNS3</span>
+                    <span class="badge">PNetLab</span>
+                    <span class="badge">VMware</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-code" style="color: var(--accent-color);"></i> SI Bursa Kerja Khusus</h3>
+                <p>Mengembangkan aplikasi web bursa kerja menggunakan metode Agile untuk studi kasus institusi pendidikan (Tugas Akhir S1).</p>
+                <div class="badges-container">
+                    <span class="badge">PHP 8.2</span>
+                    <span class="badge">Laravel 12</span>
+                    <span class="badge">MySQL</span>
+                    <span class="badge">Tailwind CSS</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3><i class="fa-solid fa-earth-asia" style="color: var(--accent-color);"></i> Earthquake Detection Web App</h3>
+                <p>Membangun sistem deteksi dan pemantauan gempa bumi berbasis web dengan visualisasi pemetaan interaktif.</p>
+                <div class="badges-container">
+                    <span class="badge">Python</span>
+                    <span class="badge">PostgreSQL</span>
+                    <span class="badge">Leaflet.js</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- PENGALAMAN KERJA -->
-        <section>
-            <h3>Pengalaman Kerja</h3>
-            <ul>
-                <li>
-                    <span class="job-title">NOC Technician & Field Engineer - PT Intranusa Core Teknologi</span><br>
-                    <span class="date-location">Okt 2026 – Sekarang | Serpong, Tangerang Selatan</span>
-                    <p>Melakukan pemantauan jaringan secara real-time via The Dude, mengelola perangkat routing/switching (MikroTik/Cisco), dan menangani troubleshooting eskalasi jaringan.</p>
-                </li>
-                <li>
-                    <span class="job-title">Desktop & Network Support Intern - PT. Pertamina Patra Niaga</span><br>
-                    <span class="date-location">Mei 2026 – Jun 2026 | Jakarta Pusat</span>
-                    <p>Melakukan instalasi, imaging, dan konfigurasi perangkat komputer/laptop pengguna. Memberikan dukungan teknis helpdesk dan troubleshooting hardware/software.</p>
-                </li>
-            </ul>
-        </section>
+    <!-- KEAHLIAN & SERTIFIKASI -->
+    <section id="skills" style="background-color: var(--white); border-radius: 12px; padding: 60px 50px; margin-bottom: 80px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);">
+        <h2 class="section-title">Keahlian & Sertifikasi</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center;">
+            <div style="flex: 1; min-width: 300px;">
+                <h3 style="color: var(--primary-bg); margin-bottom: 15px;"><i class="fa-solid fa-certificate"></i> Lisensi & Sertifikasi</h3>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li style="margin-bottom: 10px; color: #475569;"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> <strong>Network Administrator</strong> - BNSP (Jul 2025 - Jul 2028)</li>
+                    <li style="margin-bottom: 10px; color: #475569;"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> <strong>Associate Network Administrator</strong> - Kominfo RI (2026)</li>
+                    <li style="margin-bottom: 10px; color: #475569;"><i class="fa-solid fa-check" style="color: #10b981; margin-right: 10px;"></i> <strong>Bootcamp IT Network</strong> - PT Graha Karya Informasi (2026)</li>
+                </ul>
+            </div>
+            <div style="flex: 1; min-width: 300px;">
+                <h3 style="color: var(--primary-bg); margin-bottom: 15px;"><i class="fa-solid fa-microchip"></i> Teknologi & Tools</h3>
+                <div class="badges-container">
+                    <span class="badge">TCP/IP & Subnetting</span>
+                    <span class="badge">Routing (Static/OSPF)</span>
+                    <span class="badge">Zabbix & The Dude</span>
+                    <span class="badge">Linux SysAdmin (Ubuntu)</span>
+                    <span class="badge">Cisco & MikroTik</span>
+                    <span class="badge">PuTTY & WinBox</span>
+                    <span class="badge">Windows Imaging</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- PROYEK PORTFOLIO -->
-        <section>
-            <h3>Proyek & Simulasi</h3>
-            <ul>
-                <li><strong>Network Engineering & Lab Simulations:</strong> Merancang topologi kompleks (VLAN, NAT, ACLs, OSPF, L2TP VPN) menggunakan Cisco Packet Tracer, GNS3, PNetLab, dan VMware.</li>
-                <li><strong>Sistem Informasi Bursa Kerja Khusus:</strong> Membangun aplikasi web menggunakan PHP 8.2, MySQL, Laravel 12, dan Tailwind CSS (Skripsi Universitas Pamulang).</li>
-                <li><strong>Earthquake Detection Web App:</strong> Sistem pemantauan gempa berbasis web menggunakan Python, PostgreSQL, dan Leaflet.js.</li>
-            </ul>
-        </section>
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Muhammad Nur Alfath Mallorca. Tangerang Selatan, Indonesia.</p>
+    </footer>
 
-        <!-- KEAHLIAN & SERTIFIKASI -->
-        <section>
-            <h3>Keahlian & Sertifikasi</h3>
-            <ul>
-                <li><strong>Sertifikasi Resmi:</strong> Network Administrator - BNSP (2025-2028), Associate Network Administrator - Kementerian Komunikasi dan Digital RI (2026), Bootcamp IT Network - PT Graha Karya Informasi (2026).</li>
-                <li><strong>Keahlian Teknis:</strong> TCP/IP, Subnetting, Static/Dynamic Routing, Linux SysAdmin (Ubuntu Server LTS), Web & Database Deployment, Windows Imaging.</li>
-                <li><strong>Software & Tools:</strong> Cisco Packet Tracer, GNS3, Zabbix, VS Code, PuTTY, WinBox, MySQL, VirtualBox.</li>
-            </ul>
-        </section>
-
-        <!-- PENDIDIKAN -->
-        <section>
-            <h3>Pendidikan</h3>
-            <ul>
-                <li><strong>S1 Sistem Informasi</strong> - Universitas Pamulang (Lulus 2026 | IPK: 3.53 | TOEFL: 387)</li>
-                <li><strong>Jurusan Multimedia</strong> - SMK As-Su'udiyyah (2019 – 2022)</li>
-            </ul>
-        </section>
-    </div>
 </body>
 </html>
